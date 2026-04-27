@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok 2 - Pengabdian Masyarakat</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="stylesheet/style.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- NAVBAR                                     -->
+    <!-- ========================================== -->
+    <header class="navbar" id="navbar">
+        <div class="navbar__inner">
+
+            <!-- Logo -->
+            <div class="navbar__logo">
+                <img src="img/logo-header.png" alt="Logo Kelompok 2" class="navbar__logo-image" id="logo_kelompok">
+                <a href="#home" class="navbar__logo-link">Kelompok 2</a>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="navbar__menu" id="navbar-menu">
+                <ul class="navbar__list">
+                    <li class="navbar__item">
+                        <a href="#home" class="navbar__link navbar__link--active">Home</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#about" class="navbar__link">About</a>
+                    </li>
+                    <li class="navbar__item navbar__item--dropdown">
+                        <a href="#" class="navbar__link" id="dropdown-toggle">
+                            Completeness
+                            <span class="navbar__dropdown-icon">
+                                <svg width="0.75rem" height="0.75rem" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <!-- Dropdown Panel -->
+                        <div class="navbar__dropdown" id="dropdown-panel">
+                            <ul class="navbar__dropdown-list">
+                                <li class="navbar__dropdown-item">
+                                    <a href="#proposal" class="navbar__dropdown-link">Proposal</a>
+                                </li>
+                                <li class="navbar__dropdown-item">
+                                    <a href="#cover-letter" class="navbar__dropdown-link">Cover Letter from Partner</a>
+                                </li>
+                                <li class="navbar__dropdown-item">
+                                    <a href="#banners" class="navbar__dropdown-link">Banners and Posters</a>
+                                </li>
+                                <li class="navbar__dropdown-item">
+                                    <a href="#videos" class="navbar__dropdown-link">Videos and Link</a>
+                                </li>
+                                <li class="navbar__dropdown-item">
+                                    <a href="#photo" class="navbar__dropdown-link">Photo</a>
+                                </li>
+                                <li class="navbar__dropdown-item">
+                                    <a href="#report" class="navbar__dropdown-link">Report</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#teams" class="navbar__link">Teams</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Right Spacer (placeholder for future feature) -->
+            <div class="navbar__spacer" aria-hidden="true"></div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span class="navbar__hamburger-line"></span>
+                <span class="navbar__hamburger-line"></span>
+                <span class="navbar__hamburger-line"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="navbar__mobile-overlay" id="mobile-overlay">
+        <div class="navbar__mobile-menu">
+            <ul class="navbar__mobile-list">
+                <li class="navbar__mobile-item">
+                    <a href="#home" class="navbar__mobile-link">Home</a>
+                </li>
+                <li class="navbar__mobile-item">
+                    <a href="#about" class="navbar__mobile-link">About</a>
+                </li>
+                <li class="navbar__mobile-item navbar__mobile-item--dropdown">
+                    <button class="navbar__mobile-dropdown-toggle" id="mobile-dropdown-toggle">
+                        Completeness
+                        <span class="navbar__dropdown-icon">
+                            <svg width="0.75rem" height="0.75rem" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="navbar__mobile-dropdown" id="mobile-dropdown-panel">
+                        <ul class="navbar__mobile-dropdown-list">
+                            <li class="navbar__mobile-dropdown-item">
+                                <a href="#proposal" class="navbar__mobile-dropdown-link">Proposal</a>
+                            </li>
+                            <li class="navbar__mobile-dropdown-item">
+                                <a href="#cover-letter" class="navbar__mobile-dropdown-link">Cover Letter from Partner</a>
+                            </li>
+                            <li class="navbar__mobile-dropdown-item">
+                                <a href="#banners" class="navbar__mobile-dropdown-link">Banners and Posters</a>
+                            </li>
+                            <li class="navbar__mobile-dropdown-item">
+                                <a href="#videos" class="navbar__mobile-dropdown-link">Videos and Link</a>
+                            </li>
+                            <li class="navbar__mobile-dropdown-item">
+                                <a href="#photo" class="navbar__mobile-dropdown-link">Photo</a>
+                            </li>
+                            <li class="navbar__mobile-dropdown-item">
+                                <a href="#report" class="navbar__mobile-dropdown-link">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navbar__mobile-item">
+                    <a href="#teams" class="navbar__mobile-link">Teams</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION                               -->
+    <!-- ========================================== -->
+    <section class="hero" id="home">
+
+        <!-- Hero Background Image -->
+        <div class="hero__bg" id="hero-bg">
+            <img
+                src="/img/hero.jpeg"
+                alt="Hero Background"
+                class="hero__bg-image"
+            >
+            <!-- Dark overlay untuk keterbacaan teks -->
+            <div class="hero__bg-overlay"></div>
+        </div>
+
+        <!-- Floating Decorative Shapes (Parallax) -->
+        <div class="hero__shapes" id="hero-shapes">
+            <div class="hero__shape hero__shape--1"></div>
+            <div class="hero__shape hero__shape--2"></div>
+            <div class="hero__shape hero__shape--3"></div>
+            <div class="hero__shape hero__shape--4"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero__content">
+
+            <!-- Title -->
+            <h1 class="hero__title" id="hero-title">
+                <span class="hero__title-line">Pengabdian Masyarakat</span>
+                <span class="hero__title-highlight" id="hero-highlight">Kelompok 2</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero__subtitle" id="hero-subtitle">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="hero__actions" id="hero-actions">
+                <a href="#about" class="btn btn--primary magnetic-btn" data-magnetic>
+                    <span class="btn__shine"></span>
+                    About
+                </a>
+                <a href="#teams" class="btn btn--secondary magnetic-btn" data-magnetic>
+                    <span class="btn__shine"></span>
+                    Teams
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="hero__scroll-indicator" id="scroll-indicator">
+            <div class="hero__scroll-arrow">
+                <svg width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PLACEHOLDER SECTIONS (for scroll targets)  -->
+    <!-- ========================================== -->
+    <section class="placeholder-section" id="about">
+        <div class="placeholder-section__container">
+            <h2 class="placeholder-section__title">About</h2>
+            <p class="placeholder-section__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </section>
+
+    <section class="placeholder-section" id="teams">
+        <div class="placeholder-section__container">
+            <h2 class="placeholder-section__title">Teams</h2>
+            <p class="placeholder-section__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </section>
+
+    <!-- Custom Script -->
+    <script src="script/main.js"></script>
+</body>
+</html>
