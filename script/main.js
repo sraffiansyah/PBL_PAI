@@ -67,14 +67,18 @@ function toggleDropdown(event) {
   event.preventDefault();
   dropdownVisible = !dropdownVisible;
 
+  // Toggle visibility class
   dropdownPanel.classList.toggle('navbar__dropdown--visible', dropdownVisible);
 
+  // Toggle arrow rotation via class
   const arrowIcon = dropdownToggle.querySelector('.navbar__dropdown-icon');
   arrowIcon.classList.toggle('navbar__dropdown-icon--active', dropdownVisible);
 }
 
+// Click toggle
 dropdownToggle.addEventListener('click', toggleDropdown);
 
+// Close dropdown when clicking outside
 document.addEventListener('click', function(event) {
   if (dropdownVisible &&
       !dropdownPanel.contains(event.target) &&
@@ -86,6 +90,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
+// Close dropdown on Escape key
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape' && dropdownVisible) {
     dropdownVisible = false;
@@ -115,18 +120,21 @@ function toggleMobileMenu() {
 
 hamburger.addEventListener('click', toggleMobileMenu);
 
+// Close mobile menu when clicking on overlay (not menu content)
 mobileOverlay.addEventListener('click', function(event) {
   if (event.target === mobileOverlay) {
     toggleMobileMenu();
   }
 });
 
+// Close mobile menu on Escape key
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape' && mobileMenuOpen) {
     toggleMobileMenu();
   }
 });
 
+// Close mobile menu when clicking a link
 const mobileLinks = mobileOverlay.querySelectorAll('.navbar__mobile-link, .navbar__mobile-dropdown-link');
 mobileLinks.forEach(function(link) {
   link.addEventListener('click', function() {
@@ -185,6 +193,7 @@ function initMagneticButton(button, strength = 0.3, radius = 80) {
   });
 }
 
+// Only initialize magnetic buttons on desktop
 if (window.matchMedia('(min-width: 48rem)').matches) {
   magneticButtons.forEach(function(btn) {
     initMagneticButton(btn);
@@ -329,6 +338,7 @@ function initActiveNavLinks() {
         if (entry.isIntersecting) {
           const sectionId = entry.target.getAttribute('id');
 
+          // Update desktop nav links
           navLinks.forEach(function(link) {
             link.classList.remove('navbar__link--active');
           });
@@ -337,6 +347,7 @@ function initActiveNavLinks() {
             activeLink.classList.add('navbar__link--active');
           }
 
+          // Update mobile nav links
           mobileNavLinks.forEach(function(link) {
             link.classList.remove('navbar__mobile-link--active');
           });
@@ -387,6 +398,7 @@ function initSmoothScroll() {
           behavior: 'smooth'
         });
 
+        // Close desktop dropdown if open
         if (dropdownVisible) {
           dropdownVisible = false;
           dropdownPanel.classList.remove('navbar__dropdown--visible');
@@ -433,10 +445,12 @@ let resizeTimeout;
 window.addEventListener('resize', function() {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(function() {
+    // Close mobile menu if switching to desktop
     if (window.matchMedia('(min-width: 48rem)').matches && mobileMenuOpen) {
       toggleMobileMenu();
     }
 
+    // Reinitialize magnetic buttons on desktop
     if (window.matchMedia('(min-width: 48rem)').matches) {
       magneticButtons.forEach(function(btn) {
         initMagneticButton(btn);
