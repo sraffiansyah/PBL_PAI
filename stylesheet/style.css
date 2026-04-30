@@ -250,6 +250,7 @@ input {
 
 .navbar__item {
   position: relative;
+  cursor: pointer;
 }
 
 .navbar__link {
@@ -665,7 +666,7 @@ input {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
+  margin: 4rem 0 1.25rem 0;
   opacity: 0;
   transform: translateY(1.875rem);
   transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
@@ -687,6 +688,7 @@ input {
 
 /* Second line: "Kelompok 2" — dengan hover effect */
 .hero__title-highlight {
+  cursor: pointer;
   display: inline-block;
   font-size: var(--font-size-5xl);
   font-weight: 700;
@@ -749,6 +751,7 @@ input {
   opacity: 0;
   transform: translateY(1.25rem);
   transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
+  margin-top: 5rem;
 }
 
 .hero__actions--visible {
@@ -898,7 +901,7 @@ input {
 }
 
 /* ============================================= */
-/* 6. TEAMS SECTION & SIMPLE IG                 */
+/* 6. TEAMS SECTION                             */
 /* ============================================= */
 .teams-section {
   padding: var(--spacing-4xl) var(--spacing-xl);
@@ -941,7 +944,7 @@ input {
   margin: 0 auto;
 }
 
-.team-card:nth-child(1) { grid-area: 1 / 2 / 2 / 3; } 
+.team-card:nth-child(1) { grid-area: 1 / 2 / 2 / 3; }
 .team-card:nth-child(2) { grid-area: 2 / 1 / 3 / 2; }
 .team-card:nth-child(3) { grid-area: 2 / 2 / 3 / 3; }
 .team-card:nth-child(4) { grid-area: 2 / 3 / 3 / 4; }
@@ -982,7 +985,7 @@ input {
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: var(--spacing-xl);
   opacity: 0;
@@ -995,14 +998,24 @@ input {
   opacity: 1;
   transform: translateY(0);
 }
-
+/* Naikin nama dan NIM */
+.team-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  margin-top: 15rem;
+}
 .team-name {
   font-size: var(--font-size-xl);
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 4px;
   transform: translateY(10px);
   transition: transform 0.4s ease 0.05s;
+  margin-bottom: 0.25rem;
 }
 
 .team-card:hover .team-name {
@@ -1024,48 +1037,106 @@ input {
 .team-card:hover .team-nim {
   transform: translateY(0);
 }
-
-/* Simple Instagram Button */
-.team-ig-btn {
+/* Instagram Button Styles */
+.team-ig-wrapper {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+  z-index: 5;
+}
+.team-card:hover .team-ig-wrapper {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.ig-button {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
+}
+.ig-button:hover {
+  width: 190px;
+  box-shadow: 0 6px 25px rgba(225, 48, 108, 0.5);
+}
+.icon-wrapper {
+  position: relative;
   width: 38px;
-  height: 38px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--white-10);
-  backdrop-filter: blur(8px);
-  border-radius: 50%;
-  color: var(--white-70);
+  flex-shrink: 0;
+  z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 12px;
+}
+.ig-button:hover .icon-wrapper {
+  transform: translateX(0);
+}
+.ig-button svg {
+  width: 26px;
+  height: 26px;
+  fill: white;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.separator {
+  position: absolute;
+  left: 48px;
+  height: 20px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.6);
   opacity: 0;
-  transform: translateY(12px) scale(0.8);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 5;
+  transform: scaleY(0);
+  transition: all 0.3s ease;
+  transition-delay: 0.1s;
 }
-
-.team-card:hover .team-ig-btn {
+.ig-button:hover .separator {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: scaleY(1);
+}
+.username {
+  position: absolute;
+  left: 57px;
+  white-space: nowrap;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.15s;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
-.team-ig-btn:hover {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-  color: var(--white);
-  transform: scale(1.15) !important;
-  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+.ig-button:hover .username {
+  opacity: 1;
+  transform: translateX(0);
 }
-
-.team-ig-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 
@@ -1140,11 +1211,6 @@ input {
     font-size: 2.5rem;
   }
 
-  .hero__subtitle {
-    font-size: var(--font-size-base);
-    max-width: 30rem;
-  }
-
   .hero__actions {
     flex-direction: column;
     gap: var(--spacing-md);
@@ -1184,6 +1250,40 @@ input {
   .placeholder-section__title {
     font-size: var(--font-size-2xl);
   }  
+
+  /* ============================================= */
+  /* Teams Grid - Tablet: 1 top, then 2 per row    */
+  /* ============================================= */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    max-width: 600px;
+  }
+
+  /* First card centered on its own row */
+  .team-card:nth-child(1) {
+    grid-column: 1 / -1;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* Rest of the cards flow naturally in 2 columns */
+  .team-card:nth-child(n+2) {
+    grid-area: auto;
+  }
+
+  .teams-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .teams-desc {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .team-info-container {
+    margin-top: 10rem;
+  }
 }
 
 /* ============================================= */
@@ -1333,6 +1433,38 @@ input {
   .navbar__mobile-dropdown-link {
     font-size: 0.875rem;
     padding: 0.375rem 0.75rem;
+  }
+
+  /* ============================================= */
+  /* Teams Grid - Mobile: 1 card per row           */
+  /* ============================================= */
+  .team-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.25rem;
+    max-width: 320px;
+  }
+
+  /* All cards single column, centered */
+  .team-card {
+    grid-column: 1;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .team-card:nth-child(1) {
+    grid-column: 1;
+  }
+
+  .teams-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .teams-desc {
+    margin-bottom: var(--spacing-xl);
+  }
+  .team-info-container {
+    margin-top: 8rem;
   }
 }
 

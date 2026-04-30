@@ -1,19 +1,17 @@
-/* ============================================= */
-/* 1. DOM REFERENCES                            */
-/* ============================================= */
-
-// Navbar elements
+/* ============================================= /
+/ 1. DOM REFERENCES                            /
+/ ============================================= */
 const navbar = document.getElementById('navbar');
 const dropdownToggle = document.getElementById('dropdown-toggle');
 const dropdownPanel = document.getElementById('dropdown-panel');
 const hamburger = document.getElementById('hamburger');
 
-// Mobile menu elements
+
 const mobileOverlay = document.getElementById('mobile-overlay');
 const mobileDropdownToggle = document.getElementById('mobile-dropdown-toggle');
 const mobileDropdownPanel = document.getElementById('mobile-dropdown-panel');
 
-// Hero elements
+
 const heroBg = document.getElementById('hero-bg');
 const heroShapes = document.getElementById('hero-shapes');
 const heroTitle = document.getElementById('hero-title');
@@ -22,16 +20,15 @@ const heroSubtitle = document.getElementById('hero-subtitle');
 const heroActions = document.getElementById('hero-actions');
 const scrollIndicator = document.getElementById('scroll-indicator');
 
-// Magnetic buttons
+
 const magneticButtons = document.querySelectorAll('[data-magnetic]');
 
-// All navbar links
+
 const navbarLinks = document.querySelectorAll('.navbar__link');
 
-/* ============================================= */
-/* 2. NAVBAR SCROLL EFFECT (CAPSULE TRANSFORM)  */
-/* ============================================= */
-
+/* ============================================= /
+/ 2. NAVBAR SCROLL EFFECT                      /
+/ ============================================= */
 let lastScrollY = 0;
 let ticking = false;
 
@@ -57,53 +54,51 @@ window.addEventListener('scroll', function() {
 
 handleNavbarScroll();
 
-/* ============================================= */
-/* 3. DROPDOWN INTERACTION (DESKTOP)            */
-/* ============================================= */
-
+/* ============================================= /
+/ 3. DROPDOWN INTERACTION (DESKTOP)            /
+/ ============================================= */
 let dropdownVisible = false;
 
 function toggleDropdown(event) {
   event.preventDefault();
   dropdownVisible = !dropdownVisible;
 
-  // Toggle visibility class
+
   dropdownPanel.classList.toggle('navbar__dropdown--visible', dropdownVisible);
 
-  // Toggle arrow rotation via class
+
   const arrowIcon = dropdownToggle.querySelector('.navbar__dropdown-icon');
   arrowIcon.classList.toggle('navbar__dropdown-icon--active', dropdownVisible);
 }
 
-// Click toggle
+
 dropdownToggle.addEventListener('click', toggleDropdown);
 
-// Close dropdown when clicking outside
+
 document.addEventListener('click', function(event) {
   if (dropdownVisible &&
-      !dropdownPanel.contains(event.target) &&
-      !dropdownToggle.contains(event.target)) {
+    !dropdownPanel.contains(event.target) &&
+    !dropdownToggle.contains(event.target)) {
     dropdownVisible = false;
     dropdownPanel.classList.remove('navbar__dropdown--visible');
-    dropdownToggle.querySelector('.navbar__dropdown-icon')
-      .classList.remove('navbar__dropdown-icon--active');
+    dropdownToggle.querySelector('.navbar__dropdown-icon').classList.remove('navbar__dropdown-icon--active');
   }
 });
 
-// Close dropdown on Escape key
+
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape' && dropdownVisible) {
     dropdownVisible = false;
     dropdownPanel.classList.remove('navbar__dropdown--visible');
-    dropdownToggle.querySelector('.navbar__dropdown-icon')
-      .classList.remove('navbar__dropdown-icon--active');
+    dropdownToggle.querySelector('.navbar__dropdown-icon').classList.remove('navbar__dropdown-icon--active');
   }
 });
 
-/* ============================================= */
-/* 4. MOBILE MENU TOGGLE                        */
-/* ============================================= */
 
+
+/* ============================================= /
+/ 4. MOBILE MENU TOGGLE                        /
+/ ============================================= */
 let mobileMenuOpen = false;
 
 function toggleMobileMenu() {
@@ -120,21 +115,21 @@ function toggleMobileMenu() {
 
 hamburger.addEventListener('click', toggleMobileMenu);
 
-// Close mobile menu when clicking on overlay (not menu content)
+
 mobileOverlay.addEventListener('click', function(event) {
   if (event.target === mobileOverlay) {
     toggleMobileMenu();
   }
 });
 
-// Close mobile menu on Escape key
+
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape' && mobileMenuOpen) {
     toggleMobileMenu();
   }
 });
 
-// Close mobile menu when clicking a link
+
 const mobileLinks = mobileOverlay.querySelectorAll('.navbar__mobile-link, .navbar__mobile-dropdown-link');
 mobileLinks.forEach(function(link) {
   link.addEventListener('click', function() {
@@ -144,10 +139,9 @@ mobileLinks.forEach(function(link) {
   });
 });
 
-/* ============================================= */
-/* 5. MOBILE DROPDOWN TOGGLE                    */
-/* ============================================= */
-
+/* ============================================= /
+/ 5. MOBILE DROPDOWN TOGGLE                    /
+/ ============================================= */
 let mobileDropdownOpen = false;
 
 function toggleMobileDropdown(event) {
@@ -165,10 +159,11 @@ function toggleMobileDropdown(event) {
 
 mobileDropdownToggle.addEventListener('click', toggleMobileDropdown);
 
-/* ============================================= */
-/* 6. MAGNETIC BUTTON EFFECT                    */
-/* ============================================= */
 
+
+/* ============================================= /
+/ 6. MAGNETIC BUTTON EFFECT                    /
+/ ============================================= */
 function initMagneticButton(button, strength = 0.3, radius = 80) {
   button.addEventListener('mousemove', function(event) {
     const rect = button.getBoundingClientRect();
@@ -193,17 +188,16 @@ function initMagneticButton(button, strength = 0.3, radius = 80) {
   });
 }
 
-// Only initialize magnetic buttons on desktop
+
 if (window.matchMedia('(min-width: 48rem)').matches) {
   magneticButtons.forEach(function(btn) {
     initMagneticButton(btn);
   });
 }
 
-/* ============================================= */
-/* 7. PARALLAX SCROLL EFFECT                    */
-/* ============================================= */
-
+/* ============================================= /
+/ 7. PARALLAX SCROLL EFFECT                    /
+/ ============================================= */
 function handleParallax() {
   const scrollY = window.scrollY || window.pageYOffset;
   const heroHeight = document.querySelector('.hero').offsetHeight;
@@ -234,10 +228,10 @@ window.addEventListener('scroll', function() {
   }
 }, { passive: true });
 
-/* ============================================= */
-/* 8. HERO SCROLL INDICATOR VISIBILITY          */
-/* ============================================= */
 
+/* ============================================= /
+/ 8. HERO SCROLL INDICATOR VISIBILITY          /
+/ ============================================= */
 function initScrollIndicator() {
   setTimeout(function() {
     if (scrollIndicator) {
@@ -262,39 +256,25 @@ function initScrollIndicator() {
 
 initScrollIndicator();
 
-/* ============================================= */
-/* 9. INTERSECTION OBSERVER - SCROLL ANIMATIONS */
-/* ============================================= */
-
+/* ============================================= /
+/ 9. INTERSECTION OBSERVER - SCROLL ANIMATIONS /
+/ ============================================= */
 function initScrollAnimations() {
-  const heroElements = [
-    heroTitle,
-    heroSubtitle,
-    heroActions
-  ];
-
+  const heroElements = [heroTitle, heroSubtitle, heroActions];
   const heroObserver = new IntersectionObserver(
     function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add(entry.target.classList[0].replace('title', 'title--visible')
-            .replace('subtitle', 'subtitle--visible')
-            .replace('actions', 'actions--visible'));
-
+          entry.target.classList.add(entry.target.classList[0].replace('title', 'title--visible').replace('subtitle', 'subtitle--visible').replace('actions', 'actions--visible'));
           heroObserver.unobserve(entry.target);
         }
       });
     },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    }
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
   );
 
   heroElements.forEach(function(element) {
-    if (element) {
-      heroObserver.observe(element);
-    }
+    if (element) heroObserver.observe(element);
   });
 
   const sectionObserver = new IntersectionObserver(
@@ -307,10 +287,7 @@ function initScrollAnimations() {
         }
       });
     },
-    {
-      threshold: 0.15,
-      rootMargin: '0px 0px -80px 0px'
-    }
+    { threshold: 0.15, rootMargin: '0px 0px -80px 0px' }
   );
 
   document.querySelectorAll('.placeholder-section').forEach(function(section) {
@@ -323,10 +300,11 @@ function initScrollAnimations() {
 
 initScrollAnimations();
 
-/* ============================================= */
-/* 10. ACTIVE NAV LINK ON SCROLL                */
-/* ============================================= */
 
+
+/* ============================================= /
+/ 10. ACTIVE NAV LINK ON SCROLL                /
+/ ============================================= */
 function initActiveNavLinks() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.navbar__link');
@@ -338,30 +316,21 @@ function initActiveNavLinks() {
         if (entry.isIntersecting) {
           const sectionId = entry.target.getAttribute('id');
 
-          // Update desktop nav links
+
           navLinks.forEach(function(link) {
             link.classList.remove('navbar__link--active');
           });
           const activeLink = document.querySelector('.navbar__link[href="#' + sectionId + '"]');
-          if (activeLink) {
-            activeLink.classList.add('navbar__link--active');
-          }
-
-          // Update mobile nav links
+          if (activeLink) activeLink.classList.add('navbar__link--active');
           mobileNavLinks.forEach(function(link) {
             link.classList.remove('navbar__mobile-link--active');
           });
           const activeMobileLink = document.querySelector('.navbar__mobile-link[href="#' + sectionId + '"]');
-          if (activeMobileLink) {
-            activeMobileLink.classList.add('navbar__mobile-link--active');
-          }
+          if (activeMobileLink) activeMobileLink.classList.add('navbar__mobile-link--active');
         }
       });
     },
-    {
-      threshold: 0.3,
-      rootMargin: '-72px 0px 0px 0px'
-    }
+    { threshold: 0.3, rootMargin: '-72px 0px 0px 0px' }
   );
 
   sections.forEach(function(section) {
@@ -371,10 +340,9 @@ function initActiveNavLinks() {
 
 initActiveNavLinks();
 
-/* ============================================= */
-/* 11. SMOOTH SCROLL FOR NAV LINKS              */
-/* ============================================= */
-
+/* ============================================= /
+/ 11. SMOOTH SCROLL FOR NAV LINKS              /
+/ ============================================= */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(function(link) {
     link.addEventListener('click', function(event) {
@@ -392,13 +360,7 @@ function initSmoothScroll() {
 
         const navbarHeight = navbar.querySelector('.navbar__inner').offsetHeight;
         const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight - 16;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-
-        // Close desktop dropdown if open
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         if (dropdownVisible) {
           dropdownVisible = false;
           dropdownPanel.classList.remove('navbar__dropdown--visible');
@@ -411,10 +373,11 @@ function initSmoothScroll() {
 
 initSmoothScroll();
 
-/* ============================================= */
-/* 12. HERO TITLE HOVER TILT EFFECT             */
-/* ============================================= */
 
+
+/* ============================================= /
+/ 12. HERO TITLE HOVER TILT EFFECT             /
+/ ============================================= */
 if (heroHighlight) {
   heroHighlight.addEventListener('mousemove', function(event) {
     const rect = heroHighlight.getBoundingClientRect();
@@ -437,20 +400,19 @@ if (heroHighlight) {
   });
 }
 
-/* ============================================= */
-/* 13. WINDOW RESIZE HANDLER                    */
-/* ============================================= */
-
+/* ============================================= /
+/ 13. WINDOW RESIZE HANDLER                    /
+/ ============================================= */
 let resizeTimeout;
 window.addEventListener('resize', function() {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(function() {
-    // Close mobile menu if switching to desktop
+
     if (window.matchMedia('(min-width: 48rem)').matches && mobileMenuOpen) {
       toggleMobileMenu();
     }
 
-    // Reinitialize magnetic buttons on desktop
+
     if (window.matchMedia('(min-width: 48rem)').matches) {
       magneticButtons.forEach(function(btn) {
         initMagneticButton(btn);
@@ -459,11 +421,36 @@ window.addEventListener('resize', function() {
   }, 250);
 });
 
-/* ============================================= */
-/* 14. CONSOLE WELCOME MESSAGE                  */
-/* ============================================= */
-console.log(
-  '%c Kelompok 2 - Pengabdian Masyarakat ',
-  'background: #948979; color: #222831; font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 4px;'
-);
+/* ============================================= /
+/ 14. IG BUTTON RIPPLE & CLICK HANDLER         /
+/ ============================================= */
+function createRipple(event) {
+  const button = event.currentTarget;
+  const ripple = document.createElement('span');
+  const rect = button.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  const x = event.clientX - rect.left - size / 2;
+  const y = event.clientY - rect.top - size / 2;
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = x + 'px';
+  ripple.style.top = y + 'px';
+  ripple.classList.add('ripple');
+  button.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+}
+
+// Attach click handler to all IG buttons
+document.querySelectorAll('.ig-button').forEach(function(button) {
+  button.addEventListener('click', function(event) {
+    const igLink = this.getAttribute('data-ig-link');
+    if (igLink) {
+      window.open(igLink, '_blank');
+    }
+  });
+});
+
+/* ============================================= /
+/ 15. CONSOLE WELCOME MESSAGE                  /
+/ ============================================= */
+console.log('%c Kelompok 2 - Pengabdian Masyarakat ', 'background: #948979; color: #222831; font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 4px;');
 console.log('Website loaded successfully! ');

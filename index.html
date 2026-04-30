@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="stylesheet/style.css">
 </head>
 <body>
-
     <!-- ========================================== -->
     <!-- NAVBAR                                     -->
     <!-- ========================================== -->
@@ -36,8 +35,8 @@
                     <li class="navbar__item">
                         <a href="#about" class="navbar__link">About</a>
                     </li>
-                    <li class="navbar__item navbar__item--dropdown">
-                        <a href="#" class="navbar__link" id="dropdown-toggle">
+                    <li class="navbar__item navbar__item--dropdown navbar__link">
+                        <a href="#" id="dropdown-toggle">
                             Completeness
                             <span class="navbar__dropdown-icon">
                                 <svg width="0.75rem" height="0.75rem" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,13 +51,10 @@
                                     <a href="#proposal" class="navbar__dropdown-link">Proposal dan Laporan</a>
                                 </li>
                                 <li class="navbar__dropdown-item">
-                                    <a href="#cover-letter" class="navbar__dropdown-link">Cover Letter from Partner</a>
+                                    <a href="#banners" class="navbar__dropdown-link">Banner dan Poster</a>
                                 </li>
                                 <li class="navbar__dropdown-item">
-                                    <a href="#banners" class="navbar__dropdown-link">Banners and Posters</a>
-                                </li>
-                                <li class="navbar__dropdown-item">
-                                    <a href="#videos" class="navbar__dropdown-link">Videos and Link</a>
+                                    <a href="#videos" class="navbar__dropdown-link">Video dan Link</a>
                                 </li>
                             </ul>
                         </div>
@@ -107,22 +103,13 @@
                     <div class="navbar__mobile-dropdown" id="mobile-dropdown-panel">
                         <ul class="navbar__mobile-dropdown-list">
                             <li class="navbar__mobile-dropdown-item">
-                                <a href="#proposal" class="navbar__mobile-dropdown-link">Proposal</a>
+                                <a href="#proposal" class="navbar__mobile-dropdown-link">Proposal dan laporan</a>
                             </li>
                             <li class="navbar__mobile-dropdown-item">
-                                <a href="#cover-letter" class="navbar__mobile-dropdown-link">Cover Letter from Partner</a>
+                                <a href="#banners" class="navbar__mobile-dropdown-link">Banner dan Poster</a>
                             </li>
                             <li class="navbar__mobile-dropdown-item">
-                                <a href="#banners" class="navbar__mobile-dropdown-link">Banners and Posters</a>
-                            </li>
-                            <li class="navbar__mobile-dropdown-item">
-                                <a href="#videos" class="navbar__mobile-dropdown-link">Videos and Link</a>
-                            </li>
-                            <li class="navbar__mobile-dropdown-item">
-                                <a href="#photo" class="navbar__mobile-dropdown-link">Photo</a>
-                            </li>
-                            <li class="navbar__mobile-dropdown-item">
-                                <a href="#report" class="navbar__mobile-dropdown-link">Report</a>
+                                <a href="#videos" class="navbar__mobile-dropdown-link">Video dan Link</a>
                             </li>
                         </ul>
                     </div>
@@ -170,10 +157,7 @@
                 <span class="hero__title-highlight" id="hero-highlight">Kelompok 2</span>
             </h1>
 
-            <!-- Subtitle -->
-            <p class="hero__subtitle" id="hero-subtitle">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.
-            </p>
+
 
             <!-- Action Buttons -->
             <div class="hero__actions" id="hero-actions">
@@ -210,86 +194,176 @@
         </div>
     </section>
     
-    <!-- TEAMS -->
+    <!-- ========================================== -->
+    <!-- TEAMS SECTION                              -->
+    <!-- ========================================== -->
     <section class="teams-section" id="teams">
         <div class="teams-container">
             <h2 class="teams-title">Anggota <span>Kelompok</span></h2>
             <p class="teams-desc">Kenali anggota tim kami yang berdedikasi.</p>
+
             <div class="team-grid">
+                <!-- Card 1 -->
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=600&q=80" alt="Ahmad Rizky" class="team-photo">
                     <div class="team-overlay">
-                        <h3 class="team-name">Ahmad Rizky</h3>
-                        <span class="team-nim">NIM: 123456001</span>
-                        <a href="https://instagram.com/ahmadrizky" target="_blank" class="team-ig-btn" aria-label="Instagram Ahmad Rizky">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
+                        <div class="team-info-container">
+                            <h3 class="team-name">Ahmad Rizky</h3>
+                            <span class="team-nim">NIM: 123456001</span>
+                        </div>
+                        <div class="team-ig-wrapper">
+                            <button class="ig-button" onclick="createRipple(event)" data-ig-link="https://instagram.com/ahmadrizky">
+                                <div class="icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="separator"></div>
+                                <span class="username">@ahmadrizky</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 2 -->
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&w=600&q=80" alt="Siti Nurhaliza" class="team-photo">
                     <div class="team-overlay">
-                        <h3 class="team-name">Siti Nurhaliza</h3>
-                        <span class="team-nim">NIM: 123456002</span>
-                        <a href="https://instagram.com/sitinurhaliza" target="_blank" class="team-ig-btn" aria-label="Instagram Siti Nurhaliza">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
+                        <div class="team-info-container">
+                            <h3 class="team-name">Siti Nurhaliza</h3>
+                            <span class="team-nim">NIM: 123456002</span>
+                        </div>
+                        <div class="team-ig-wrapper">
+                            <button class="ig-button" onclick="createRipple(event)" data-ig-link="https://instagram.com/sitinurhaliza">
+                                <div class="icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="separator"></div>
+                                <span class="username">@sitinurhaliza</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 3 -->
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fit=crop&w=600&q=80" alt="Budi Santoso" class="team-photo">
                     <div class="team-overlay">
-                        <h3 class="team-name">Budi Santoso</h3>
-                        <span class="team-nim">NIM: 123456003</span>
-                        <a href="https://instagram.com/budisantoso" target="_blank" class="team-ig-btn" aria-label="Instagram Budi Santoso">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
+                        <div class="team-info-container">
+                            <h3 class="team-name">Budi Santoso</h3>
+                            <span class="team-nim">NIM: 123456003</span>
+                        </div>
+                        <div class="team-ig-wrapper">
+                            <button class="ig-button" onclick="createRipple(event)" data-ig-link="https://instagram.com/budisantoso">
+                                <div class="icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="separator"></div>
+                                <span class="username">@budisantoso</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 4 -->
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=600&q=80" alt="Dewi Lestari" class="team-photo">
                     <div class="team-overlay">
-                        <h3 class="team-name">Dewi Lestari</h3>
-                        <span class="team-nim">NIM: 123456004</span>
-                        <a href="https://instagram.com/dewilestari" target="_blank" class="team-ig-btn" aria-label="Instagram Dewi Lestari">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
+                        <div class="team-info-container">
+                            <h3 class="team-name">Dewi Lestari</h3>
+                            <span class="team-nim">NIM: 123456004</span>
+                        </div>
+                        <div class="team-ig-wrapper">
+                            <button class="ig-button" onclick="createRipple(event)" data-ig-link="https://instagram.com/dewilestari">
+                                <div class="icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="separator"></div>
+                                <span class="username">@dewilestari</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 5 -->
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fit=crop&w=600&q=80" alt="Dimas Aditya" class="team-photo">
                     <div class="team-overlay">
-                        <h3 class="team-name">Dimas Aditya</h3>
-                        <span class="team-nim">NIM: 123456005</span>
-                        <a href="https://instagram.com/dimasaditya" target="_blank" class="team-ig-btn" aria-label="Instagram Dimas Aditya">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
+                        <div class="team-info-container">
+                            <h3 class="team-name">Dimas Aditya</h3>
+                            <span class="team-nim">NIM: 123456005</span>
+                        </div>
+                        <div class="team-ig-wrapper">
+                            <button class="ig-button" onclick="createRipple(event)" data-ig-link="https://instagram.com/dimasaditya">
+                                <div class="icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="separator"></div>
+                                <span class="username">@dimasaditya</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 6 -->
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?fit=crop&w=600&q=80" alt="Rina Amelia" class="team-photo">
                     <div class="team-overlay">
-                        <h3 class="team-name">Rina Amelia</h3>
-                        <span class="team-nim">NIM: 123456006</span>
-                        <a href="https://instagram.com/rinaamelia" target="_blank" class="team-ig-btn" aria-label="Instagram Rina Amelia">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
+                        <div class="team-info-container">
+                            <h3 class="team-name">Rina Amelia</h3>
+                            <span class="team-nim">NIM: 123456006</span>
+                        </div>
+                        <div class="team-ig-wrapper">
+                            <button class="ig-button" onclick="createRipple(event)" data-ig-link="https://instagram.com/rinaamelia">
+                                <div class="icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="separator"></div>
+                                <span class="username">@rinaamelia</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 7 -->
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?fit=crop&w=600&q=80" alt="Fajar Pratama" class="team-photo">
                     <div class="team-overlay">
-                        <h3 class="team-name">Fajar Pratama</h3>
-                        <span class="team-nim">NIM: 123456007</span>
-                        <a href="https://instagram.com/fajarpratama" target="_blank" class="team-ig-btn" aria-label="Instagram Fajar Pratama">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
+                        <div class="team-info-container">
+                            <h3 class="team-name">Fajar Pratama</h3>
+                            <span class="team-nim">NIM: 123456007</span>
+                        </div>
+                        <div class="team-ig-wrapper">
+                            <button class="ig-button" onclick="createRipple(event)" data-ig-link="https://instagram.com/fajarpratama">
+                                <div class="icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="separator"></div>
+                                <span class="username">@fajarpratama</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     
+    <!-- ========================================== -->
+    <!-- DOCUMENTATION SECTION                      -->
+    <!-- ========================================== -->
     <section class="placeholder-section" id="documentation">
         <div class="placeholder-section__container">
             <h2 class="placeholder-section__title">Documentation</h2>
