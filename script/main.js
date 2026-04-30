@@ -454,3 +454,7 @@ document.querySelectorAll('.ig-button').forEach(function(button) {
 / ============================================= */
 console.log('%c Kelompok 2 - Pengabdian Masyarakat ', 'background: #948979; color: #222831; font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 4px;');
 console.log('Website loaded successfully! ');
+document.addEventListener('DOMContentLoaded', () => {
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
