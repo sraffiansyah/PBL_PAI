@@ -1166,6 +1166,13 @@ input {
   }
 }
 
+/*  RESPONSIVE - TENGAH                */
+/* @media (max-width: 1100px) {
+  .team-info-container {
+    margin-top: 11rem;
+  }
+} */
+
 /* ============================================= */
 /* 8. RESPONSIVE - TABLET (768px)               */
 /* ============================================= */
@@ -1289,7 +1296,7 @@ input {
 /* ============================================= */
 /* 9. RESPONSIVE - MOBILE (375px)               */
 /* ============================================= */
-@media (max-width: 375px) {
+@media (max-width: 420px) {
   /* Navbar mobile adjustments */
   .navbar {
     padding: 0.75rem 0;
