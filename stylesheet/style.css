@@ -901,94 +901,118 @@ input {
 }
 
 /* ========================================== */
-/* VIDEO DAN LINK SECTION                     */
+/* VIDEO DAN LINK SECTION (BEM + Theme)       */
 /* ========================================== */
-
 .videos-section {
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: var(--spacing-4xl) var(--spacing-xl);
+  background: var(--dark);
+  min-height: auto;
 }
 
 .videos-container {
   max-width: 900px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .videos-title {
-  font-size: 2.5rem;
+  font-size: var(--font-size-4xl);
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, rgb(146, 123, 97), rgb(155, 133, 93));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: var(--spacing-sm);
+  color: var(--white);
+}
+
+.videos-title span {
+  color: var(--primary);
 }
 
 .videos-desc {
-  text-align: center;
-  color: white;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  color: var(--white-70);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-3xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
 }
 
 /* Thumbnail Wrapper */
 .video-thumbnail-wrapper {
   position: relative;
   max-width: 100%;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   cursor: pointer;
-  margin-top: 1rem;
-  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  margin: 0 auto var(--spacing-xl);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  background: var(--secondary);
+  aspect-ratio: 16/9;
 }
 
-.video-thumbnail-wrapper:hover {
-  transform: scale(1.02);
+.video-thumbnail-wrapper:hover,
+.video-thumbnail-wrapper:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+  outline: none;
 }
 
 .video-thumbnail {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  transition: transform var(--transition-slow);
 }
 
-/* Tombol Play */
+.video-thumbnail-wrapper:hover .video-thumbnail {
+  transform: scale(1.03);
+}
+
+/* Play Button */
 .video-play-button {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 0, 0, 0.85);
+  width: 72px;
+  height: 72px;
+  background: rgba(255, 0, 0, 0.9);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .video-thumbnail-wrapper:hover .video-play-button {
   transform: translate(-50%, -50%) scale(1.1);
-  background: rgba(255, 0, 0, 1);
+  background: var(--primary);
 }
 
 .play-icon {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
+  color: var(--white);
+  margin-left: 2px; /* optical adjustment */
 }
 
 /* Video Embed */
 .video-embed-wrapper {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
   max-width: 100%;
-  border-radius: 16px;
-  margin-top: 1rem;
-  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-xl);
+  margin: 0 auto var(--spacing-xl);
+  box-shadow: var(--shadow-lg);
+  background: var(--secondary);
+}
+
+.video-embed-wrapper[hidden] {
+  display: none;
 }
 
 .video-iframe {
@@ -998,37 +1022,48 @@ input {
   width: 100%;
   height: 100%;
   border: 0;
+  border-radius: var(--radius-xl);
 }
 
-/* Tombol YouTube */
-.video-link-wrapper {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.video-youtube-button {
+/* YouTube Button - Theme Consistent */
+.button-yt {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #ff0000, #cc0000);
-  color: white;
-  padding: 12px 28px;
-  border-radius: 50px;
-  text-decoration: none;
+  gap: var(--spacing-sm);
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  border: 2px solid var(--white-30);
+  border-radius: var(--radius-full);
+  color: var(--white-70);
+  font-size: var(--font-size-base);
   font-weight: 600;
-  font-size: 1rem;
-  transition: transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  cursor: pointer;
 }
 
-.video-youtube-button:hover {
-  transform: scale(1.05);
+.button-yt:hover,
+.button-yt:focus {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--white-05);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  outline: none;
 }
 
-.youtube-icon {
-  width: 22px;
-  height: 22px;
+.button-yt svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
 }
+
+.button-yt:hover svg {
+  transform: scale(1.1);
+}
+
+
 
 /* ============================================= */
 /* 6. TEAMS SECTION                             */
@@ -1632,6 +1667,61 @@ input {
     height: 10rem;
   }
 
+  /* PROPOSAL */
+    /* Update pada bagian Proposal agar Center */
+/* Pembungkus Utama Section Proposal */
+.placeholder-section__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menengahkan judul dan wrapper kartu */
+    width: 100%;
+    text-align: center;
+}
+
+/* Pembungkus Kartu-Kartu */
+.cards-wrapper {
+    display: flex;
+    justify-content: center; /* INI KUNCINYA: Menengahkan kartu secara horizontal */
+    align-items: center;
+    flex-wrap: wrap;         /* Agar kartu turun otomatis jika layar sempit */
+    gap: 20px;               /* Jarak antar kartu */
+    width: 100%;             /* Pastikan wrapper mengambil lebar penuh */
+    margin: 30px auto;       /* Margin atas/bawah, dan auto untuk center */
+}
+
+/* Pastikan section secara keseluruhan punya padding agar tidak nempel ke pinggir */
+.placeholder-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+/* Penyesuaian Mobile */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    flex-direction: column; /* Kartu menumpuk satu-satu di HP */
+    align-items: center;
+  }
+}
+  /* YOUTUBE */
+  .videos-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .videos-desc {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .video-play-button {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .play-icon {
+    width: 26px;
+    height: 26px;
+  }
+
   /* Placeholder sections tablet */
   .placeholder-section {
     padding: var(--spacing-3xl) var(--spacing-lg);
@@ -1785,7 +1875,42 @@ input {
     width: 2rem;
     height: 2rem;
   }
+
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
   
+  .card {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+  }
+  
+  .card:nth-child(3) {
+    grid-column: auto;
+  }
+  
+  .photo {
+    width: var(--img-width, 90%);
+    height: var(--img-height, auto);
+    max-height: 250px;
+  }
+
+  .videos-section {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+  
+  .videos-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .button-yt {
+    padding: 0.625rem 1.5rem;
+    font-size: var(--font-size-sm);
+  }
   /* Placeholder sections mobile */
   .placeholder-section {
     min-height: 50vh;
@@ -2077,63 +2202,98 @@ input {
   }
 }
 
-/* ============================================= */
-/* YOUTUBE                  */
-/* ============================================= */
-
- .placeholder-section {
-            min-height: 60vh; display: flex; align-items: center; justify-content: center;
-            padding: var(--spacing-4xl) var(--spacing-xl);
-        }
-        .placeholder-section:nth-child(even) { background: var(--secondary); }
-        .placeholder-section__container { max-width: 700px; text-align: center; }
-        .placeholder-section__title { font-size: var(--font-size-3xl); font-weight: 700; color: var(--primary); margin-bottom: var(--spacing-lg); }
-        .placeholder-section__text { font-size: var(--font-size-base); color: var(--white-70); line-height: 1.8; }
-        .video-card {
-            max-width: 720px;
-            margin: 0 auto 2rem;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-            background: rgba(255,255,255,0.03);
-        }
-        .video-card__link { position: relative; display: block; }
-        .video-card__thumbnail { width: 100%; display: block; object-fit: cover; }
-        .video-card__overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.45));
-        }
-        .video-card__play {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 72px; height: 72px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            color: var(--white);
-        }
-        .video-card__play svg { width: 28px; height: 28px; fill: currentColor; margin-left: 4px; }
-        .video-card__link:hover .video-card__play { transform: translate(-50%, -50%) scale(1.05); background: rgba(255,255,255,0.25); }
 
 
 
 
 
 
+/* === Wrapper: 3 Card Horizontal (Fixed) === */
+/* === Wrapper: Grid Layout === */
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Desktop: 3 kolom */
+  gap: 20px;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 15px;
+}
 
+/* === Card Utama (macOS Style) === */
+.card {
+  width: 100%;
+  max-width: 300px;
+  height: 360px;
+  background-color: #24233b;
+  border-radius: 8px;
+  box-shadow: 0px 10px 10px rgb(73, 70, 92);
+  transition: 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center; /* Center card dalam grid cell */
+}
 
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
 
+/* === Header & Tombol macOS === */
+.top {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 5px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
+.circle { padding: 0 4px; }
 
+.circle2 {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
 
+.red { background-color: #ff605c; }
+.yellow { background-color: #ffbd44; }
+.green { background-color: #00ca4e; }
 
+#title2 {
+  color: white;
+  padding-left: 20px;
+  font-size: 14px;
+  font-family: monospace;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+/* === Container & Foto === */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
+.photo {
+  width: var(--img-width, 260px);
+  height: var(--img-height, 280px);
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
 
-
-
-
-
-
-
-
+.photo:hover {
+  transform: scale(1.03);
+  border-color: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
