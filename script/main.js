@@ -454,3 +454,42 @@ document.querySelectorAll('.ig-button').forEach(function(button) {
 / ============================================= */
 console.log('%c Kelompok 2 - Pengabdian Masyarakat ', 'background: #948979; color: #222831; font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 4px;');
 console.log('Website loaded successfully! ');
+document.addEventListener('DOMContentLoaded', () => {
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
+
+/* ============================================= */
+/* 16. VIDEO SECTION INTERACTION                */
+/* ============================================= */
+function playVideo() {
+  const thumbnail = document.getElementById('videoThumbnail');
+  const embed = document.getElementById('videoEmbed');
+  const iframe = document.getElementById('youtubeIframe');
+  const videoId = 'RkB_HFYtyrA'; // Ganti dengan ID video lo
+  
+  if (thumbnail && embed && iframe) {
+    // Hide thumbnail, show embed
+    thumbnail.style.display = 'none';
+    embed.hidden = false;
+    
+    // Load video dengan autoplay
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    
+    // Optional: scroll smooth ke video
+    embed.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+
+// Attach click & keyboard events
+const videoThumbnail = document.getElementById('videoThumbnail');
+if (videoThumbnail) {
+  videoThumbnail.addEventListener('click', playVideo);
+  videoThumbnail.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      playVideo();
+    }
+  });
+}
